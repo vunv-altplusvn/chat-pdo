@@ -4,10 +4,11 @@
 Class User extends DB {
 
 	public static function create($username, $password) {
-		$q = self::$db->prepare('INSERT INTO user(username, password) VALUES (:username, :password)');
+		$q = self::$db->prepare('INSERT INTO user(username, password, email) VALUES (:username, :password, :email)');
 		return $q->execute(array(
 			':username' => $username,
 			':password' => sha1($password),
+			':email' => $email,
 		));
 	}
 

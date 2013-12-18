@@ -13,7 +13,7 @@ class Message extends DB{
 	}
 
 	static function getAll() {
-		$result = self::$db->query('SELECT message.id as message_id, content, created_at, updated_at, user.id as user_id, username FROM message
+		$result = self::$db->query('SELECT message.id as message_id, content, message.created_at, message.updated_at, user.id as user_id, username FROM message
 									JOIN user on message.user_id = user.id WHERE message.deleted = 0');
 		$return = array();
 		while ($message = $result->fetchObject()) {
@@ -23,7 +23,7 @@ class Message extends DB{
 	}
 
 	static function getNewMessageByLastUpdate($lastUpdate) {
-		$q = self::$db->prepare('SELECT message.id as message_id, content, created_at, updated_at, user.id as user_id, username FROM message
+		$q = self::$db->prepare('SELECT message.id as message_id, content, message.created_at, message.updated_at, user.id as user_id, username FROM message
 									JOIN user on message.user_id = user.id WHERE message.created_at > :lastUpdate AND message.deleted = 0');
 		$q->execute(array(
 			':lastUpdate' => $lastUpdate,
@@ -49,7 +49,7 @@ class Message extends DB{
 	}
 
 	static function getEditedMessageByLastUpdate($lastUpdate) {
-		$q = self::$db->prepare('SELECT id, content FROM message WHERE message.updated_at > :lastUpdate AND message.deleted = 0');
+		$q = self::$db->prepare('SELECT id, content, updated_at FROM message WHERE message.updated_at > :lastUpdate AND message.deleted = 0');
 		$q->execute(array(
 			':lastUpdate' => $lastUpdate,
 		));

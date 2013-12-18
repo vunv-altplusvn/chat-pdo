@@ -77,10 +77,10 @@ $(document).ready(function () {
 
 				// edited message
 				editedMessage = data.editedMessage;
-				console.log(editedMessage);
+				// console.log(editedMessage);
 				for(var i = 0; i < editedMessage.length; i++) {
 					var m = editedMessage[i];
-					console.log(m);
+					// console.log(m);
 					$('div.m[data-id=' + m.id + ']').find('input[type=text]').first().val(m.content);
 				}
 			}
@@ -108,9 +108,9 @@ function sendMessage (aEdit) {
 
 function deleteMessage(aDelete) {
 	// alert('delete message');
-	console.log('delete message');
+	// console.log('delete message');
 	var messageId = aDelete.parent().parent().data('id');
-	console.log('id: ' + messageId);
+	// console.log('id: ' + messageId);
 	$.ajax({
 		type: "GET",
 		url: "message.php",
@@ -120,14 +120,14 @@ function deleteMessage(aDelete) {
 			id: messageId,
 		},
 	}).done(function( data ) {
-		console.log(data);
+		// console.log(data);
 	}).fail(function( jqXHR, textStatus ) {
 		console.log("Request failed: " + textStatus );
 	});
 }
 
 function editMessage(inputEdit) {
-	console.log('save content: ' + inputEdit.val());
+	// console.log('save content: ' + inputEdit.val());
 	var m = inputEdit.parent().parent(),
 		messageId = m.data('id');
 	$.ajax({
@@ -140,7 +140,7 @@ function editMessage(inputEdit) {
 			content: inputEdit.val(),
 		},
 	}).done(function( data ) {
-		console.log(data);
+		// console.log(data);
 		inputEdit.attr('readonly', 'readonly');
 		inputEdit.removeClass('active');
 	}).fail(function( jqXHR, textStatus ) {

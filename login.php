@@ -3,8 +3,9 @@ session_start();
 if (isset($_SESSION['login_user'])) header("location: /chat-pdo/");
 require 'Model/DB.php';
 require 'Model/User.php';
-DB::connect();
+
 if (isset($_POST['submit'])) {
+	DB::connect();
 	// create
 	if (User::login($_POST['username'], $_POST['password'])) {
 		$_SESSION['login_user'] = $_POST['username'];
