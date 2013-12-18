@@ -1,0 +1,89 @@
+body {
+	color: #444;
+}
+
+a {
+	text-decoration: none;
+	color: #444;
+}
+
+.clear {
+	clear: both;
+}
+a:visited {
+	color: #444;
+}
+.wrapper {
+	width: 960px;
+	margin: 60px auto;
+}
+
+#chat-box {
+	border: 1px solid #a4a4a4;
+	width: 800px;
+}
+
+#content-box {
+	height: 500px;
+	width: 100%;
+	overflow: auto;
+	border-bottom: 1px solid #a4a4a4;
+}
+
+.m {
+	padding: 10px;
+}
+
+.m p{
+	font-size: 18px;
+}
+
+.m p span {
+	font-weight: bold;
+	font-size: 20px;
+}
+.m input[type=text] {
+	width: 300px;
+	border: none;
+}
+.m input[type=text].active {
+	border: 1px solid #a4a4a4; !important;
+}
+.m a:hover {
+	color: red;
+}
+
+.m p.meta {
+	font-size: 14px;
+	text-align: right;
+}
+#send-box {
+	height: 60px;
+	width: 100%;
+}
+
+#send-box #message {
+	height: 40px;
+	width: 650px;
+	font-size: 24px;
+	line-height: 38px;
+	padding: 0 15px;
+	border: 1px solid #a4a4a4;
+	margin: 10px 0 0 10px;
+}
+
+#send-box #send {
+	height: 50px;
+	width: 90px;
+	margin: 5px 0 0 5px;
+	font-size: 20px;
+}
+
+#register-form {
+	border: 1px solid #a4a4a4;
+	padding: 10px;
+}
+
+#register-form p {
+	margin-bottom: 10px;
+}
